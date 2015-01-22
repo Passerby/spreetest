@@ -7,11 +7,11 @@ module Spree
 
     has_many :shipments, inverse_of: :address
 
-    validates :firstname, :lastname, :address1, :city, :country, presence: true
+    validates :firstname, :address1, presence: true
     validates :zipcode, presence: true, if: :require_zipcode?
     validates :phone, presence: true, if: :require_phone?
 
-    validate :state_validate, :postal_code_validate
+    # validate :state_validate, :postal_code_validate
 
     alias_attribute :first_name, :firstname
     alias_attribute :last_name, :lastname
