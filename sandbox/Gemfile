@@ -49,6 +49,12 @@ gem 'spree_alipay_payment', path: '../../better_spree_alipay'
 gem 'capistrano', '~> 3.3.0'
 
 group :test, :development do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
+
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+  
   platforms :ruby_19 do
     gem 'pry-debugger'
   end

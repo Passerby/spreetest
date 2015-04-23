@@ -35,13 +35,13 @@
     <div class="payment-info">
 
 
-      <% unless order.paid? %>
+    <% unless order.paid? %>
 
-          <b> 尚未付款 </b>
-          <b>  </b>
-
-          <a href="/alipay/partner_trade?payment_method_id=6" ><b>去支付宝付款</b></a>
-
+      <b> 尚未付款 </b>
+      <b>  </b>
+      <% if order.payments.each {|m| m.payment_method.type ==  "Spree::Gateway::AlipayPartnerTrade" } %>
+        <%=link_to_partner_trade(Spree::PaymentMethod.find_by_type("Spree::Gateway::AlipayPartnerTrade"), order)%> 
+      <% end %>
     <% else %>
           <b> payed</b>
       <% end %>
